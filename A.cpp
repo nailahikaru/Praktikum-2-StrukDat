@@ -1,31 +1,39 @@
 #include <iostream>
 #include <map>
-
 using namespace std;
 
-int main(){
+int main() {
 
-    map<int, int>arr;
-    int n, x, y, flag=0;
-
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+   
+    map<int, int> arr;
+    int n, x = 0, y = 0;
     cin >> n;
-    for (int i = 1; i <= n; i++){
+    
+    for (int j = 1; j <= n; j++) {
         int temp;
         cin >> temp;
-        arr.insert({temp, i});
-        int a = 100-temp;
-        if((flag < 1) && a<100){
-            auto cari = arr.find(a);
-            auto now = arr.find(temp);
-            if((cari != arr.end()) && (cari->second != now->second)){
-                x = now->second;
-                y = cari->second;
-                flag++;
+
+        if (temp >= 100) {  
+            arr[temp] = j;
+            continue;
+        } else {
+            int target = 100 - temp;
+        
+            auto cari = arr.find(target);
+            if (cari != arr.end()) {
+                x = cari->second;
+                y = j;
+                break;
+            }
+            
+            arr[temp] = j;
         }
-        }
+        
     }
     
-    cout << x <<"\n"<< y;
-
-return 0;
+    cout << x << "\n" << y;
+    
+    return 0;
 }
