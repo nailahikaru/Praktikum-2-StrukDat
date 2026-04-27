@@ -1,0 +1,1 @@
+{"name":"Local: king","url":"c:\\Users\\Maryamah\\Desktop\\kuliah\\Struktur Data\\Praktikum-2-StrukDat\\king.cpp","tests":[{"id":1776771533968,"input":"7\n40 20 60 10 30 50 70\n30 60 ","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Maryamah\\Desktop\\kuliah\\Struktur Data\\Praktikum-2-StrukDat\\king.cpp","group":"local","local":true}

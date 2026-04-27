@@ -19,7 +19,7 @@ struct AVLNode {
     int height;
 };
 
-int jarakkiri=0, jarakkanan=0;
+int jarak = 0;
 
 struct AVL
 {
@@ -39,14 +39,30 @@ private:
         while (root != NULL) {
             if (value < root->data){
                 root = root->left;
-                jarakkiri++;}
-            else if (value > root->data){
+    //            jarakkiri++;
+        }else if (value > root->data){
                 root = root->right;
-                jarakkanan++;}
-            else
+      //          jarakkanan++;
+        }else
                 return root;
         }
         return root;
+    }
+
+    int _searchjarak(AVLNode *root, int value) {
+        
+        while (root != NULL) {
+            if (value < root->data){
+                root = root->left;
+                jarak++;}
+            else if (value > root->data){
+                root = root->right;
+                jarak++;}
+            else if (value == root->data){
+                break;
+            }
+        }
+        return jarak;
     }
 
     int _getHeight(AVLNode* node){
@@ -219,6 +235,11 @@ public:
         else return false;
     }
 
+    int ukurjarak(int value){
+        jarak = 0;
+        return _searchjarak(_root, value);
+    }
+
     void insert(int value) {
         if (!find(value)) {
             _root = _insert_AVL(_root, value);
@@ -255,10 +276,15 @@ int main(int argc, char const *argv[])
     int satu, dua;
     cin >> satu >> dua;
 
-    set.find(satu);
-    set.find(dua);
+    int jrk1=0, jrk2=0;
+
+    if(set.find(satu)) jrk1 = set.ukurjarak(satu); 
+    if(set.find(dua)) jrk2 = set.ukurjarak(dua);
+
+
+    //cout << jrk1 << " " << jrk2;
+    cout << jrk1 + jrk2;
     
-    cout << jarakkiri << " " << jarakkanan;
     // set.inorder();
     // printf("\n");
 
